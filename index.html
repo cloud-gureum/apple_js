@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="main.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     
+    <div class="alert-box" id="alert">
+        <span id="alert-content">알림창</span>
+        <button onclick="alertControl('none')">닫기</button>
+    </div>
+
+    <button onclick="alertControl('block'); alertContent('아이디 입력하세요'); ">버튼1</button>
+    <button onclick="alertControl('block'); alertContent('비밀번호 입력하세요');">버튼2</button>
+
+
+    <script>
+        function alertControl(ctrl){
+            document.getElementById('alert').style.display = ctrl;
+        }
+        function alertContent(content){
+            document.getElementById('alert-content').innerHTML = content;
+        }
+
+
+    </script>
 </body>
 </html>
