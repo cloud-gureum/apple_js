@@ -1,62 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="main.css" rel="stylesheet">
-    <title>Document</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <link href="main.css" rel="stylesheet">
+  <title>Document</title>
 </head>
+
 <body>
 
-    <div class="black-bg">
-        <div class="white-bg">
-          <h4>로그인하세요</h4>
-          <button class="btn btn-danger" id="close">닫기</button>
+  <div class="black-bg">
+    <div class="white-bg">
+      <h4>로그인하세요</h4>
+      <form action="success.html" id="myForm">
+        <div class="my-3">
+          <input type="text" class="form-control" id="input1">
         </div>
-      </div> 
-
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <span class="navbar-brand">Navbar</span>
-          <button class="navbar-toggler" type="button">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <div class="my-3">
+          <input type="password" class="form-control" id="input2">
         </div>
-      </nav> 
-
-      <ul class="list-group">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li>
-      </ul>
-
-      <button id="login">Login</button>
-
-      <script>
-
-        $('#login').on('click', function(){
-            $('.black-bg').addClass('show');
-        })
-        $('#close').on('click', function(){
-            $('.black-bg').removeClass('show');
-        })
-        
-
-        document.querySelector('.navbar-toggler').addEventListener('click', function(){
-            document.querySelector('.list-group').classList.toggle('show');
-        })
-
-
-      </script>
+        <button type="submit" class="btn btn-primary" id="submit">전송</button>
+        <button type="button" class="btn btn-danger" id="close">닫기</button>
+      </form>
+    </div>
+  </div>
 
 
 
-    <script src="bootstrap.min.js"></script>
+  <script>
+
+    $('#submit').on('click', function (e) {
+      if ($('#input1').val() == "") {
+        alert('아이디 입력하세요');
+        e.preventDefault();
+      }
+      else if($('#input2').val() == ""){
+        alert('비밀번호 입력하세요');
+        e.preventDefault();
+      }
+      else if($('#input2').val().length < 6){
+        alert('비밀번호 너무 짧습니다');
+        e.preventDefault();
+      }
+    })
+
+
+  </script>
+
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand">Navbar</span>
+      <span class="badge bg-dark" id="darkmode">Dark 🔄</span>
+      <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <ul class="list-group">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+  </ul>
+
+  <div class="main-bg">
+    <h4>Shirts on Sale</h4>
+    <button id="login" class="btn btn-danger">Login</button>
+  </div>
+
+
+  <script>
+    var darknum = 0;
+
+    $('#darkmode').on('click', function(){
+      
+      if(darknum % 2 == 0){
+        $('#darkmode').html('Light 🔄');
+        $('.navbar').addClass('navbar-dark');
+        $('.navbar').removeClass('navbar-light');
+        $('.navbar').addClass('bg-dark');
+        $('.navbar').removeClass('bg-light');
+        darknum +=1;
+      }
+      else{
+        $('#darkmode').html('Dark 🔄');
+        $('.navbar').addClass('navbar-light');
+        $('.navbar').removeClass('navbar-dark');
+        $('.navbar').addClass('bg-light');
+        $('.navbar').removeClass('bg-dark');
+        darknum +=1;
+      }
+    })
+
+
+    $('#login').on('click', function () {
+      $('.black-bg').addClass('show-modal');
+    })
+    $('#close').on('click', function () {
+      $('.black-bg').removeClass('show-modal');
+    })
+
+
+    document.querySelector('.navbar-toggler').addEventListener('click', function () {
+      document.querySelector('.list-group').classList.toggle('show');
+    })
+
+
+  </script>
+
+<!-- <script> 
+  function 삼육구(num){
+    if(num%3 == 0){
+      if(num%9 == 0){
+        console.log('박수X2')
+      }
+      else{
+      console.log('박수')
+    }
+    }
+    else {
+      console.log('통과')
+    }
+  }
+
+  function 합격(num1, num2){
+    if(num1>100 || num2>100){
+      alert('장난?')
+      return false
+    }
+    if(num1<40 || num2<40){
+      console.log('불합격')
+    }
+    else if(num1+num2 >= 120){
+      console.log('합격')
+    }
+    else{
+      console.log('불합격')
+    }
     
+  }
+</script> -->
+
+
+
+  <script src="bootstrap.min.js"></script>
+
 </body>
+
 </html>
