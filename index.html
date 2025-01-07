@@ -3,29 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <link href="bootstrap.min.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
+
+    <div class="black-bg">
+        <div class="white-bg">
+          <h4>로그인하세요</h4>
+          <button class="btn btn-danger" id="close">닫기</button>
+        </div>
+      </div> 
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">Navbar</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav> 
+
+      <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+      </ul>
+
+      <button id="login">Login</button>
+
+      <script>
+
+        $('#login').on('click', function(){
+            $('.black-bg').addClass('show');
+        })
+        $('#close').on('click', function(){
+            $('.black-bg').removeClass('show');
+        })
+        
+
+        document.querySelector('.navbar-toggler').addEventListener('click', function(){
+            document.querySelector('.list-group').classList.toggle('show');
+        })
+
+
+      </script>
+
+
+
+    <script src="bootstrap.min.js"></script>
     
-    <div class="alert-box" id="alert">
-        <span id="alert-content">알림창</span>
-        <button onclick="alertControl('none')">닫기</button>
-    </div>
-
-    <button onclick="alertControl('block'); alertContent('아이디 입력하세요'); ">버튼1</button>
-    <button onclick="alertControl('block'); alertContent('비밀번호 입력하세요');">버튼2</button>
-
-
-    <script>
-        function alertControl(ctrl){
-            document.getElementById('alert').style.display = ctrl;
-        }
-        function alertContent(content){
-            document.getElementById('alert-content').innerHTML = content;
-        }
-
-
-    </script>
 </body>
 </html>
