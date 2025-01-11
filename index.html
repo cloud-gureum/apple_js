@@ -75,8 +75,38 @@
     <button id="login" class="btn btn-danger">Login</button>
   </div>
 
+  <div class="quiz">
+    <p>태조 이성계가 태어난 년도는?</p>
+    <input type="text" id="answer">
+    <button id="send-answer">제출</button>
+  </div>
+
+<script>
+
+  var answer = 0;
+  $('#send-answer').on('click', function(){
+    if($('#answer').val()==1335){
+      alert('성공');
+      answer = 0;
+    }
+    else if(answer <2) {
+      alert('틀렸음');
+      answer ++;
+    }
+    else if(answer == 2){
+      alert('멍청아');
+      answer = 0;
+    }
+  })
+
+</script>
+
+
 
   <script>
+
+
+
     var darknum = 0;
 
     $('#darkmode').on('click', function(){
