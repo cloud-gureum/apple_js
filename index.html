@@ -39,10 +39,22 @@
         alert('아이디 입력하세요');
         e.preventDefault();
       }
+      
+      else if(/\S+@\S+.\S+/.test($('#input1').val()) == false){
+        alert('이메일 형식 아님');
+        e.preventDefault();
+      }
+
       else if($('#input2').val() == ""){
         alert('비밀번호 입력하세요');
         e.preventDefault();
       }
+
+      else if(/[A-Z]/.test($('#input2').val()) == false){
+        alert('비밀번호에 대문자 필요함');
+        e.preventDefault();
+      }
+
       else if($('#input2').val().length < 6){
         alert('비밀번호 너무 짧습니다');
         e.preventDefault();
@@ -75,13 +87,18 @@
     <button id="login" class="btn btn-danger">Login</button>
   </div>
 
-  <div class="quiz">
+
+<div class="alert alert-danger">
+  <span id="timer">5</span>초 이내 구매시 사은품 증정!
+</div>
+
+  <!-- <div class="quiz">
     <p>태조 이성계가 태어난 년도는?</p>
     <input type="text" id="answer">
     <button id="send-answer">제출</button>
-  </div>
+  </div> -->
 
-<script>
+<!-- <script>
 
   var answer = 0;
   $('#send-answer').on('click', function(){
@@ -99,13 +116,25 @@
     }
   })
 
+</script> -->
+
+
+<script>
+var timer = 5;
+setInterval(function(){
+  if(timer > 0){
+   $('#timer').html(timer);
+   timer --;
+  }
+  else if(timer == 0){
+    $('.alert').hide();
+  }
+  }, 1000);
+
 </script>
 
 
-
   <script>
-
-
 
     var darknum = 0;
 
