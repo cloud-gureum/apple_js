@@ -39,23 +39,23 @@
         alert('아이디 입력하세요');
         e.preventDefault();
       }
-      
-      else if(/\S+@\S+.\S+/.test($('#input1').val()) == false){
+
+      else if (/\S+@\S+.\S+/.test($('#input1').val()) == false) {
         alert('이메일 형식 아님');
         e.preventDefault();
       }
 
-      else if($('#input2').val() == ""){
+      else if ($('#input2').val() == "") {
         alert('비밀번호 입력하세요');
         e.preventDefault();
       }
 
-      else if(/[A-Z]/.test($('#input2').val()) == false){
+      else if (/[A-Z]/.test($('#input2').val()) == false) {
         alert('비밀번호에 대문자 필요함');
         e.preventDefault();
       }
 
-      else if($('#input2').val().length < 6){
+      else if ($('#input2').val().length < 6) {
         alert('비밀번호 너무 짧습니다');
         e.preventDefault();
       }
@@ -88,9 +88,85 @@
   </div>
 
 
-<div class="alert alert-danger">
-  <span id="timer">5</span>초 이내 구매시 사은품 증정!
-</div>
+  <div class="alert alert-danger">
+    <span id="timer">5</span>초 이내 구매시 사은품 증정!
+  </div>
+
+  <div style="overflow: hidden;">
+    <div class="slide-container">
+      <div class="slide-box">
+        <img src="car1.png">
+      </div>
+      <div class="slide-box">
+        <img src="car2.png">
+      </div>
+      <div class="slide-box">
+        <img src="car3.png">
+      </div>
+    </div>
+  </div>
+
+  <button class="previous">이전</button>
+  <button class="slide-1">1</button>
+  <button class="slide-2">2</button>
+  <button class="slide-3">3</button>
+  <button class="next">다음</button>
+
+
+  <script>/*slide*/
+
+    function slide(width) {
+      $('.slide-container').css('transform', `translateX(${width}vw)`);
+    }
+
+    var index = 1;
+
+    $('.slide-1').on('click', function(){
+      slide(0);
+      index = 1;
+    });
+
+    $('.slide-2').on('click', function(){
+      slide(-100);
+      index = 2;
+    });
+
+    $('.slide-3').on('click', function(){
+      slide(-200);
+      index = 3;
+    });
+    
+    $('.previous').on('click', function(){
+      if(index == 1){
+        //
+      }
+      else if(index == 2){
+        slide(0);
+        index = 1;
+      }
+      else if(index ==3){
+        slide(-100);
+        index = 2;
+      }
+    });
+
+    $('.next').on('click', function(){
+      if(index == 1){
+        slide(-100);
+        index = 2;
+      }
+      else if(index == 2){
+        slide(-200);
+        index = 3;
+      }
+      else if(index ==3){
+        //
+      }
+    });
+
+
+
+  </script>
 
   <!-- <div class="quiz">
     <p>태조 이성계가 태어난 년도는?</p>
@@ -98,7 +174,7 @@
     <button id="send-answer">제출</button>
   </div> -->
 
-<!-- <script>
+  <!-- <script> /*quiz*/
 
   var answer = 0;
   $('#send-answer').on('click', function(){
@@ -119,42 +195,42 @@
 </script> -->
 
 
-<script>
-var timer = 5;
-setInterval(function(){
-  if(timer > 0){
-   $('#timer').html(timer);
-   timer --;
-  }
-  else if(timer == 0){
-    $('.alert').hide();
-  }
-  }, 1000);
+  <script>/*hide timer*/
+    var timer = 5;
+    setInterval(function () {
+      if (timer > 0) {
+        $('#timer').html(timer);
+        timer--;
+      }
+      else if (timer == 0) {
+        $('.alert').hide();
+      }
+    }, 1000);
 
-</script>
+  </script>
 
 
-  <script>
+  <script>/*darkmode*/
 
     var darknum = 0;
 
-    $('#darkmode').on('click', function(){
-      
-      if(darknum % 2 == 0){
+    $('#darkmode').on('click', function () {
+
+      if (darknum % 2 == 0) {
         $('#darkmode').html('Light 🔄');
         $('.navbar').addClass('navbar-dark');
         $('.navbar').removeClass('navbar-light');
         $('.navbar').addClass('bg-dark');
         $('.navbar').removeClass('bg-light');
-        darknum +=1;
+        darknum += 1;
       }
-      else{
+      else {
         $('#darkmode').html('Dark 🔄');
         $('.navbar').addClass('navbar-light');
         $('.navbar').removeClass('navbar-dark');
         $('.navbar').addClass('bg-light');
         $('.navbar').removeClass('bg-dark');
-        darknum +=1;
+        darknum += 1;
       }
     })
 
@@ -174,7 +250,7 @@ setInterval(function(){
 
   </script>
 
-<!-- <script> 
+  <!-- <script>/*369 & 합격여부*/ 
   function 삼육구(num){
     if(num%3 == 0){
       if(num%9 == 0){
