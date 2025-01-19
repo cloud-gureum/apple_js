@@ -32,7 +32,7 @@
 
 
 
-  <script>
+  <script>/*id/pw 입력*/
 
     $('#submit').on('click', function (e) {
       if ($('#input1').val() == "") {
@@ -66,13 +66,27 @@
 
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <span class="navbar-brand">Navbar</span>
+      <span class="navbar-brand">JSSHOP</span>
       <span class="badge bg-dark" id="darkmode">Dark 🔄</span>
       <button class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
   </nav>
+
+  <script>/*navbar-brand font size 조정*/
+
+    $(window).on('scroll', function(){
+      if($(window).scrollTop() > 100){
+        $('.navbar-brand').css('font-size', '15px');
+      }
+      else{
+        $('.navbar-brand').css('font-size', '25px');
+      }
+    })
+    
+
+  </script>
 
   <ul class="list-group">
     <li class="list-group-item">An item</li>
@@ -92,7 +106,7 @@
     <span id="timer">5</span>초 이내 구매시 사은품 증정!
   </div>
 
-  <div style="overflow: hidden;">
+  <div style="overflow: hidden;"> <!--slide container-->
     <div class="slide-container">
       <div class="slide-box">
         <img src="car1.png">
@@ -106,11 +120,39 @@
     </div>
   </div>
 
+  <div>
   <button class="previous">이전</button>
   <button class="slide-1">1</button>
   <button class="slide-2">2</button>
   <button class="slide-3">3</button>
   <button class="next">다음</button>
+</div>
+
+
+<div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus esse vel maxime dolorum. Doloribus eligendi minima numquam dolorum. Quasi necessitatibus repellat amet dolores neque. Dolor officiis quod soluta quos et.
+
+</div>
+
+<script>
+var alerted = false;
+$('.lorem').on('scroll', function(){
+  if(!alerted){
+  var scrollAmount = $('.lorem').scrollTop();
+  var scrollHeight = $('.lorem').prop('scrollHeight');
+  if(scrollHeight - 5 < scrollAmount+100 && scrollAmount +100 < scrollHeight+5){
+    alert('다 읽었나요');
+    alerted = true;
+  }
+}
+})
+
+</script>
+
+
+
+<div style="height: 1000px;"></div>
 
 
   <script>/*slide*/
