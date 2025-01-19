@@ -30,7 +30,15 @@
     </div>
   </div>
 
+  <script>
 
+    $('.black-bg').on('click', function (e) {
+      if ($(e.target).is($(this))) {
+        $('.black-bg').removeClass('show-modal');
+      }
+    })
+
+  </script>
 
   <script>/*id/pw 입력*/
 
@@ -76,15 +84,15 @@
 
   <script>/*navbar-brand font size 조정*/
 
-    $(window).on('scroll', function(){
-      if($(window).scrollTop() > 100){
+    $(window).on('scroll', function () {
+      if ($(window).scrollTop() > 100) {
         $('.navbar-brand').css('font-size', '15px');
       }
-      else{
+      else {
         $('.navbar-brand').css('font-size', '25px');
       }
     })
-    
+
 
   </script>
 
@@ -120,39 +128,40 @@
     </div>
   </div>
 
-  <div>
-  <button class="previous">이전</button>
-  <button class="slide-1">1</button>
-  <button class="slide-2">2</button>
-  <button class="slide-3">3</button>
-  <button class="next">다음</button>
-</div>
+  <div> <!--slide button-->
+    <button class="previous">이전</button>
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button class="next">다음</button>
+  </div>
 
 
-<div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+  <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
 
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus esse vel maxime dolorum. Doloribus eligendi minima numquam dolorum. Quasi necessitatibus repellat amet dolores neque. Dolor officiis quod soluta quos et.
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus esse vel maxime dolorum. Doloribus eligendi
+    minima numquam dolorum. Quasi necessitatibus repellat amet dolores neque. Dolor officiis quod soluta quos et.
 
-</div>
+  </div>
 
-<script>
-var alerted = false;
-$('.lorem').on('scroll', function(){
-  if(!alerted){
-  var scrollAmount = $('.lorem').scrollTop();
-  var scrollHeight = $('.lorem').prop('scrollHeight');
-  if(scrollHeight - 5 < scrollAmount+100 && scrollAmount +100 < scrollHeight+5){
-    alert('다 읽었나요');
-    alerted = true;
-  }
-}
-})
+  <script> /*lorem scroll function*/
+    var alerted = false;
+    $('.lorem').on('scroll', function () {
+      if (!alerted) {
+        var scrollAmount = $('.lorem').scrollTop();
+        var scrollHeight = $('.lorem').prop('scrollHeight');
+        if (scrollHeight - 5 < scrollAmount + 100 && scrollAmount + 100 < scrollHeight + 5) {
+          alert('다 읽었나요');
+          alerted = true;
+        }
+      }
+    })
 
-</script>
+  </script>
 
 
 
-<div style="height: 1000px;"></div>
+  <div style="height: 1000px;"></div>
 
 
   <script>/*slide*/
@@ -163,45 +172,45 @@ $('.lorem').on('scroll', function(){
 
     var index = 1;
 
-    $('.slide-1').on('click', function(){
+    $('.slide-1').on('click', function () {
       slide(0);
       index = 1;
     });
 
-    $('.slide-2').on('click', function(){
+    $('.slide-2').on('click', function () {
       slide(-100);
       index = 2;
     });
 
-    $('.slide-3').on('click', function(){
+    $('.slide-3').on('click', function () {
       slide(-200);
       index = 3;
     });
-    
-    $('.previous').on('click', function(){
-      if(index == 1){
+
+    $('.previous').on('click', function () {
+      if (index == 1) {
         //
       }
-      else if(index == 2){
+      else if (index == 2) {
         slide(0);
         index = 1;
       }
-      else if(index ==3){
+      else if (index == 3) {
         slide(-100);
         index = 2;
       }
     });
 
-    $('.next').on('click', function(){
-      if(index == 1){
+    $('.next').on('click', function () {
+      if (index == 1) {
         slide(-100);
         index = 2;
       }
-      else if(index == 2){
+      else if (index == 2) {
         slide(-200);
         index = 3;
       }
-      else if(index ==3){
+      else if (index == 3) {
         //
       }
     });
