@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+
+<body>
+
+<script>
+
+var 출석부 = ['흥민', '영희', '철수', '철수', '재석'];
+
+function 이름찾기(name){
+    출석부.forEach(function(a){
+        if(a == name){
+            console.log(a);
+            return;
+        }
+    })
+}
+
+var 몇단 = [2, 3];
+
+function 구구단(){
+    몇단.forEach(function(a){
+        for(let i = 0; i<9; i++){
+            var result = a*(i+1);
+            console.log(result);
+        }
+    })
+}
+
+function 평균계산(a, b){
+    var sum = 0;
+    a.forEach(function(e){
+        sum = sum + e;
+    })
+    var avg = sum / a.length;
+    var diff = parseInt(b-avg);
+    console.log(sum);
+    console.log(avg);
+    console.log(diff);
+    if(diff >= 0){
+        console.log('평균보다 ' + diff + '점이 올랐네요.');
+    }
+    else{
+        console.log('평균보다 ' + -diff + '점이 떨어졌네요.')
+    }
+}
+
+</script>
+
+
+
+
+  
+
+
+
+  <script src="bootstrap.min.js"></script>
+
+</body>
+
+</html>

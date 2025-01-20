@@ -12,9 +12,20 @@
   <title>Document</title>
 </head>
 
+<body>
+
+  <div class="container mt-3">
+
+    <div class="card p-3">
+      <span id="car-name">상품명</span><span id="car-price">가격</span>
+    </div>
+
+  </div>
 
 
-<div class="container mt-5">
+
+
+  <div class="container mt-5">
     <ul class="list">
       <li class="tab-button">Products</li>
       <li class="tab-button orange">Information</li>
@@ -29,16 +40,27 @@
     <div class="tab-content">
       <p>배송정보입니다. Shipping</p>
     </div>
-  </div> 
+  </div>
+
+  
+
+  <form class="container my-5 form-group">
+    <p>상품선택</p>
+    <select class="form-select mt-2">
+      <option>모자</option>
+      <option>셔츠</option>
+      <option>바지</option>
+    </select>
+    <select class="form-select mt-2 form-hide">
+      <option>95</option>
+      <option>100</option>
+    </select>
+  </form>
+
+  
+
 
   <script src="tab.js"></script>
-
-
-
-
-
-
-
   <script src="bootstrap.min.js"></script>
 
 </body>

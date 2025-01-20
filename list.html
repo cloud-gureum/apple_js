@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <link href="list.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+
+<body>
+
+    <div class="card-group container">
+        <div class="card">
+          <img src="https://via.placeholder.com/600">
+          <div class="card-body">
+            <h5>Card title</h5>
+            <p>가격 : 70000</p>
+            <button class="btn btn-danger">주문하기</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/600">
+          <div class="card-body">
+            <h5>Card title</h5>
+            <p>가격 : 70000</p>
+            <button class="btn btn-danger">주문하기</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/600">
+          <div class="card-body">
+            <h5>Card title</h5>
+            <p>가격 : 70000</p>
+            <button class="btn btn-danger">주문하기</button>
+          </div>
+        </div>
+      </div>
+      
+      <script>
+        var products = [
+          { id : 0, price : 70000, title : 'Blossom Dress' },
+          { id : 1, price : 50000, title : 'Springfield Shirt' },
+          { id : 2, price : 60000, title : 'Black Monastery' }
+        ];
+
+        $('.card').each(function(index){
+            $(this).find('h5').html(products[index].title);
+            $(this).find('p').html("가격 : " + products[index].price + "원");
+        })
+      </script> 
+
+
+
+
+  <script src="bootstrap.min.js"></script>
+
+</body>
+
+</html>
