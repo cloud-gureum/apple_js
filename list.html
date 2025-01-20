@@ -8,53 +8,70 @@
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
   <link href="bootstrap.min.css" rel="stylesheet">
-  <link href="list.css" rel="stylesheet">
   <title>Document</title>
 </head>
 
 <body>
 
-    <div class="card-group container">
-        <div class="card">
-          <img src="https://via.placeholder.com/600">
-          <div class="card-body">
-            <h5>Card title</h5>
-            <p>가격 : 70000</p>
-            <button class="btn btn-danger">주문하기</button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/600">
-          <div class="card-body">
-            <h5>Card title</h5>
-            <p>가격 : 70000</p>
-            <button class="btn btn-danger">주문하기</button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/600">
-          <div class="card-body">
-            <h5>Card title</h5>
-            <p>가격 : 70000</p>
-            <button class="btn btn-danger">주문하기</button>
-          </div>
-        </div>
-      </div>
-      
-      <script>
-        var products = [
-          { id : 0, price : 70000, title : 'Blossom Dress' },
-          { id : 1, price : 50000, title : 'Springfield Shirt' },
-          { id : 2, price : 60000, title : 'Black Monastery' }
-        ];
+  <div class="container">
+    <div class="row">
 
-        $('.card').each(function(index){
-            $(this).find('h5').html(products[index].title);
-            $(this).find('p').html("가격 : " + products[index].price + "원");
-        })
-      </script> 
+    </div>
+  </div>
+
+  <script>
+    var products = [
+      { id: 0, price: 70000, title: 'Blossom Dress' },
+      { id: 1, price: 50000, title: 'Springfield Shirt' },
+      { id: 2, price: 60000, title: 'Black Monastery' }
+    ];
+    products.forEach(function (a) {
+      var card =
+        `<div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5>${a.title}</h5>
+        <p>가격 : ${a.price}</p>
+      </div>`;
+
+      $('.row').append(card);
+    })
+  </script>
 
 
+  <div class="container">
+    <button class="btn btn-danger" id="more">더보기</button>
+  </div>
+
+  <script>
+    var moreCount = 0
+    function get(url){
+      $.get(url)
+          .done(function (data) {
+            console.log(data);
+            data.forEach(function (a) {
+              var card =
+                `<div class="col-sm-4">
+              <img src="https://via.placeholder.com/600" class="w-100">
+              <h5>${a.title}</h5>
+              <p>가격 : ${a.price}</p>
+              </div>`;
+              $('.row').append(card);
+            })
+          });
+        moreCount++;
+    }
+
+    $('#more').click(function () {
+      if (moreCount == 0) {
+        get('https://codingapple1.github.io/js/more1.json')
+      }
+      else if (moreCount == 1) {
+        get('https://codingapple1.github.io/js/more2.json')
+        $('#more').css('display', 'none');
+      }
+    })
+
+  </script>
 
 
   <script src="bootstrap.min.js"></script>
